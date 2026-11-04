@@ -24,3 +24,6 @@ No build tools or paid hosting are required.
 
 
 The hero portrait is included in `assets/adharsh-hero.png`. This version intentionally omits admissions performance numbers until you approve them.
+
+## Version 3 hero update
+The hero portrait is integrated into the page background with a soft fade, and the hero order adapts for desktop and mobile. On mobile the headline comes first, then the portrait, then supporting copy and actions. No admissions performance numbers are included.
