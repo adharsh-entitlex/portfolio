@@ -33,3 +33,16 @@ The hero portrait now uses a transparent PNG cutout layered directly on the char
 
 ## Version 5 — Mobile hero refinement
 Tightened the mobile hero by reducing the portrait stage height and image scale, slightly reducing headline size, refining the orbital ring and reducing spacing. Desktop layout remains unchanged. No admissions numbers included.
+
+
+V6: Reference-matched hero with bright lime arc, border, bottom glow, portrait overflow, desktop split and mobile stacked layout. No admissions metrics added.
+
+## Version 7 — Overflow Hero rebuild
+Replaced the stacked V3–V6.1 hero CSS with one clean block at the end of `styles.css`.
+- Desktop: rounded hero card; the portrait is cropped by the card's bottom edge and its head rises past the glowing lime ring.
+- Mobile: headline, then portrait inside the ring, then intro text and buttons. Nothing overlaps the text.
+- Ring and portrait are sized from their own stage (container units), so they stay in proportion at every width.
+- Fixed the sideways scroll on tablet and small laptop widths.
+- The navigation now lines up with the hero card's inner edges.
+- Removed the unused `hero-reference.css` (it was never linked from `index.html`).
+- Contact section: WhatsApp (prefilled message), email and LinkedIn are now full buttons, and the email address and number are shown as text below them.
