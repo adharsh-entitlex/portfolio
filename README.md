@@ -27,3 +27,6 @@ The hero portrait is included in `assets/adharsh-hero.png`. This version intenti
 
 ## Version 3 hero update
 The hero portrait is integrated into the page background with a soft fade, and the hero order adapts for desktop and mobile. On mobile the headline comes first, then the portrait, then supporting copy and actions. No admissions performance numbers are included.
+
+## Version 4 — Overflow Hero
+The hero portrait now uses a transparent PNG cutout layered directly on the charcoal page background. A lime orbital ring and ambient glow sit behind the subject. The portrait overhangs the hero area on desktop and scales/centres on mobile. No admissions numbers have been added.

@@ -146,3 +146,92 @@
   .hero-actions .button { padding: 14px 16px; }
   .hero-meta { gap: 9px; font-size: 7px; line-height: 1.8; }
 }
+
+
+/* V4 — Concept A: Overflow Hero. The portrait is a transparent cutout,
+   layered directly over the page background rather than boxed in a card. */
+.hero-photo-wrap{
+  position:relative;
+  height:610px;
+  min-width:0;
+  overflow:visible;
+  isolation:isolate;
+}
+.portrait-ambient{
+  position:absolute;
+  width:90%;
+  height:82%;
+  right:-3%;
+  top:9%;
+  z-index:-2;
+  background:radial-gradient(ellipse at 58% 48%,rgba(105,154,35,.24) 0%,rgba(73,111,30,.12) 34%,rgba(9,11,16,0) 72%);
+  filter:blur(16px);
+}
+.photo-orbit{
+  position:absolute;
+  width:min(37vw,470px);
+  height:min(37vw,470px);
+  right:1%;
+  top:47%;
+  transform:translateY(-50%) rotate(-16deg);
+  border:1.5px solid rgba(199,243,107,.58);
+  border-radius:50%;
+  box-shadow:0 0 18px rgba(199,243,107,.18), inset 0 0 18px rgba(199,243,107,.05);
+  z-index:-1;
+}
+.hero-photo{
+  position:absolute;
+  display:block;
+  height:108%;
+  width:auto;
+  max-width:none;
+  right:-5%;
+  bottom:-4%;
+  object-fit:contain;
+  object-position:center bottom;
+  z-index:1;
+  filter:drop-shadow(0 22px 35px rgba(0,0,0,.35));
+}
+.photo-caption{
+  position:absolute;
+  z-index:3;
+  left:0;
+  bottom:27px;
+  padding:9px 12px;
+  border:1px solid rgba(199,243,107,.18);
+  border-radius:2px;
+  background:rgba(9,11,16,.52);
+  backdrop-filter:blur(8px);
+  font:8px "DM Mono",monospace;
+  letter-spacing:.1em;
+  color:#d8e0d0;
+}
+.caption-dot{display:inline-block;width:6px;height:6px;background:#c7f36b;border-radius:50%;margin-right:8px;box-shadow:0 0 10px #c7f36b}
+.photo-index{position:absolute;right:0;bottom:0;z-index:3;font:9px "DM Mono",monospace;letter-spacing:.12em;color:#c7f36b}
+.photo-index span{color:#777e86;margin-left:10px}
+
+/* Desktop: portrait deliberately overhangs the hero's right edge. */
+@media(min-width:801px){
+  .hero{grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:clamp(18px,3vw,48px);overflow:visible}
+  .hero-photo-wrap{height:620px;margin-right:-26px}
+  .hero-photo{height:112%;right:-2%;bottom:-5%}
+  .photo-orbit{width:min(38vw,490px);height:min(38vw,490px);right:0;top:47%}
+  .photo-caption{left:4px;bottom:24px}
+}
+/* Tablet and mobile: keep the cutout prominent without pushing the copy
+   too far down the page. The ring scales with the viewport. */
+@media(max-width:800px){
+  .hero-photo-wrap{order:3;width:100%;height:clamp(310px,78vw,470px);margin:0 auto 12px}
+  .hero-photo{height:108%;right:50%;transform:translateX(50%);bottom:-5%}
+  .photo-orbit{width:min(76vw,380px);height:min(76vw,380px);right:50%;transform:translate(50%,-50%) rotate(-16deg);top:46%}
+  .portrait-ambient{width:100%;height:85%;right:0;top:5%}
+  .photo-caption{left:4%;bottom:19px;font-size:7px}
+  .photo-index{right:4%;bottom:0;font-size:7px}
+}
+@media(max-width:600px){
+  .hero-photo-wrap{height:clamp(300px,92vw,390px);margin-top:0;margin-bottom:8px}
+  .hero-photo{height:110%;right:50%;bottom:-6%}
+  .photo-orbit{width:min(82vw,340px);height:min(82vw,340px);top:46%}
+  .photo-caption{bottom:15px;padding:7px 9px;letter-spacing:.06em}
+  .photo-index{display:none}
+}
