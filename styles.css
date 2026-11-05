@@ -98,17 +98,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offse
 /* soft green light pooling at the bottom of the stage */
 .hero-reference .portrait-ambient{
   position:absolute;z-index:-2;left:-8%;right:-4%;bottom:-10%;height:70%;
-  background:radial-gradient(ellipse at 50% 72%, rgba(147,220,17,.30), transparent 62%);
+  background:radial-gradient(ellipse at 50% 72%, rgba(147,220,17,.38), transparent 62%);
   filter:blur(28px);pointer-events:none;
 }
-/* the glowing ring: always a true circle, never wider than the stage */
+/* the glowing ring: a thick, bright lime line with a soft bloom inside and out */
 .hero-reference .photo-orbit{
   position:absolute;z-index:-1;
-  left:50%;top:54%;transform:translate(-50%,-50%);
-  width:min(98cqw, 78cqh);aspect-ratio:1/1;height:auto;
-  border:2px solid rgba(208,251,60,.88);border-radius:50%;
-  background:radial-gradient(circle at 50% 55%, rgba(95,135,15,.14), transparent 68%);
-  box-shadow:0 0 14px rgba(197,255,28,.6), 0 0 52px rgba(160,225,20,.26), inset 0 0 30px rgba(150,220,12,.14);
+  left:49%;top:54%;transform:translate(-50%,-50%);
+  width:min(88cqw, 78cqh);aspect-ratio:1/1;height:auto;
+  border:4px solid #d6ff3a;border-radius:50%;
+  background:radial-gradient(circle at 50% 60%, rgba(110,160,10,.20), transparent 70%);
+  box-shadow:
+    0 0 6px rgba(220,255,60,.95),
+    0 0 22px rgba(196,255,24,.75),
+    0 0 60px rgba(160,235,10,.45),
+    inset 0 0 18px rgba(214,255,58,.45),
+    inset 0 0 70px rgba(150,225,10,.22);
+}
+/* wide, blurred halo so the glow reads as light, not just a shadow */
+.hero-reference .photo-orbit::before{
+  content:"";position:absolute;inset:-6%;border-radius:50%;
+  border:14px solid rgba(190,255,20,.34);filter:blur(22px);pointer-events:none;
 }
 /* the portrait: rises above the ring, cropped by the card's bottom edge */
 .hero-reference .hero-photo{
@@ -143,21 +153,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offse
 
   .hero-reference .hero-photo-wrap{
     order:3;align-self:stretch;
-    height:clamp(330px, 100vw, 520px);
-    margin:10px calc(-1 * var(--pad)) 0;      /* full card width */
+    height:clamp(380px, 112vw, 580px);
+    margin:22px calc(-1 * var(--pad)) 0;      /* full card width, clear gap under the headline */
   }
   .hero-reference .photo-orbit{
-    top:52%;width:min(84cqw, 80cqh);border-width:1.5px;
+    top:53%;width:min(88cqw, 74cqh);border-width:3px;
   }
+  .hero-reference .photo-orbit::before{border-width:10px;filter:blur(16px)}
   .hero-reference .hero-photo{
-    height:110cqh;bottom:-6cqh;
+    height:106cqh;bottom:-8cqh;
     /* fade the cropped bottom edge into the card instead of a hard cut */
-    -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 97%);
-            mask-image:linear-gradient(to bottom,#000 80%,transparent 97%);
+    -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 98%);
+            mask-image:linear-gradient(to bottom,#000 82%,transparent 98%);
   }
   .hero-reference .portrait-ambient{left:-6%;right:-6%;bottom:0;height:75%}
 
-  .hero-reference .hero-lede{order:4;font-size:14px;line-height:1.8;margin:6px 0 0;max-width:none}
+  .hero-reference .hero-lede{order:4;font-size:14px;line-height:1.8;margin:12px 0 0;max-width:none}
   .hero-reference .hero-actions{order:5;margin:24px 0 0;gap:12px;flex-wrap:wrap}
   .hero-reference .hero-actions .button,
   .hero-reference .hero-actions .text-link{min-height:48px;padding:13px 18px;font-size:11px;display:inline-flex;align-items:center}
@@ -170,19 +181,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offse
 }
 @media(prefers-reduced-motion:reduce){.hero-reference *{animation:none!important;transition:none!important}}
 
-/* ---------- Contact section: WhatsApp, email and LinkedIn buttons + visible details ---------- */
+/* ---------- Contact section: WhatsApp, email and LinkedIn buttons ---------- */
 .contact-actions{flex-wrap:wrap;gap:14px}
 .contact-actions .button{padding:17px 22px;font-size:12px;border-radius:5px;border:1px solid transparent}
 .contact-actions .button-outline{background:transparent;color:#10130b;border:1px solid #10130b}
 .contact-actions .button-outline span{color:#10130b}
 .contact-actions .button-outline:hover{background:#10130b;color:#f2f1ed}
 .contact-actions .button-outline:hover span{color:var(--lime)}
-.contact-details{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 40px}
-.contact-details li{display:flex;flex-direction:column;gap:3px;min-width:0}
-.contact-details span{font:9px "DM Mono",monospace;letter-spacing:.12em;color:#40551d}
-.contact-details a{font-size:16px;font-weight:700;color:#10130b;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
 @media(max-width:600px){
   .contact-actions{flex-direction:column;align-items:stretch;gap:12px}
   .contact-actions .button{justify-content:center;min-height:52px}
-  .contact-details{flex-direction:column;gap:18px}
-}
+  }

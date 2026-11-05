@@ -45,4 +45,6 @@ Replaced the stacked V3–V6.1 hero CSS with one clean block at the end of `styl
 - Fixed the sideways scroll on tablet and small laptop widths.
 - The navigation now lines up with the hero card's inner edges.
 - Removed the unused `hero-reference.css` (it was never linked from `index.html`).
-- Contact section: WhatsApp (prefilled message), email and LinkedIn are now full buttons, and the email address and number are shown as text below them.
+- Contact section: WhatsApp (prefilled message), email and LinkedIn are full buttons. No email or number is shown as text.
+- V7.1: thicker ring with a stronger glow, larger portrait and better placement on mobile, fixed a see-through watch face in the cutout, and added `?v=7.1` to the CSS/JS links so phones reload the new files.
+- When publishing, upload ALL files (index.html, styles.css, script.js and the assets folder). An old styles.css next to the new index.html makes the page look broken.
