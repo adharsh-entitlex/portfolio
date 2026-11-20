@@ -1,50 +1,43 @@
 # Adharsh M. — Personal Portfolio
 
-A responsive, dark-theme personal portfolio built with plain HTML, CSS and JavaScript.
+A premium editorial single-page portfolio built with plain HTML, CSS and JavaScript. No build step, no dependencies.
 
 ## Preview locally
-Open `index.html` in a browser.
+Open `index.html` in a browser, or serve the folder:
+
+```bash
+python3 -m http.server 3000
+```
 
 ## Publish free with GitHub Pages
 1. Create a public GitHub repository, for example `adharsh-portfolio`.
-2. Upload `index.html`, `styles.css`, `script.js`, and the `assets` folder (including `adharsh-hero.png`) to the repository root.
+2. Upload `index.html`, `styles.css`, `script.js`, and the `assets` folder to the repository root.
 3. In the repository, open **Settings → Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
 5. Select the `main` branch and `/ (root)`, then Save.
-6. GitHub Pages will publish the site at `https://YOUR-USERNAME.github.io/adharsh-portfolio/`.
+6. GitHub Pages publishes the site at `https://YOUR-USERNAME.github.io/adharsh-portfolio/`.
+
+Upload ALL files together. An old `styles.css` next to a new `index.html` will look broken.
+
+## Structure
+- `index.html` — all content and section markup.
+- `styles.css` — design tokens at the top, then header, hero, sections, responsive rules.
+- `script.js` — mobile menu, scroll progress bar, section-aware navigation, reveal-on-scroll.
+- `assets/adharsh-cutout.png` — transparent portrait used in the hero.
+- `assets/adharsh-hero.png` — original portrait, kept for reference.
+
+## Design notes (v8)
+Full rewrite of the visual layer:
+- Type pairing: **Inter Tight** for structure, **Instrument Serif** italic for the accent words, **JetBrains Mono** for labels.
+- One accent colour (lime `#d8ff4d`) used sparingly, on a near-black warm-neutral base.
+- Hero: editorial split with a large portrait stage, thin ring and ambient glow, plus a hairline facts row along the bottom.
+- Fixed header with scroll progress, numbered nav and active-section tracking.
+- Work cards use CSS-only artwork in place of images; a subtle reveal-on-scroll runs through the page and respects `prefers-reduced-motion`.
+- Contact panel stays lime with WhatsApp, email and LinkedIn buttons.
 
 ## Before publishing
-- Replace the generic LinkedIn homepage URL with your actual LinkedIn profile URL.
-- Add a professional email address or preferred contact link.
-- Add a profile photo if you want one.
+- Replace the generic LinkedIn homepage URL with your actual profile URL if it changes.
 - Review the experience wording and dates for accuracy.
-- The website links to `https://claryfi.in` and `https://entitlex.in`.
+- No admissions performance numbers are included in this version.
 
-No build tools or paid hosting are required.
-
-
-The hero portrait is included in `assets/adharsh-hero.png`. This version intentionally omits admissions performance numbers until you approve them.
-
-## Version 3 hero update
-The hero portrait is integrated into the page background with a soft fade, and the hero order adapts for desktop and mobile. On mobile the headline comes first, then the portrait, then supporting copy and actions. No admissions performance numbers are included.
-
-## Version 4 — Overflow Hero
-The hero portrait now uses a transparent PNG cutout layered directly on the charcoal page background. A lime orbital ring and ambient glow sit behind the subject. The portrait overhangs the hero area on desktop and scales/centres on mobile. No admissions numbers have been added.
-
-## Version 5 — Mobile hero refinement
-Tightened the mobile hero by reducing the portrait stage height and image scale, slightly reducing headline size, refining the orbital ring and reducing spacing. Desktop layout remains unchanged. No admissions numbers included.
-
-
-V6: Reference-matched hero with bright lime arc, border, bottom glow, portrait overflow, desktop split and mobile stacked layout. No admissions metrics added.
-
-## Version 7 — Overflow Hero rebuild
-Replaced the stacked V3–V6.1 hero CSS with one clean block at the end of `styles.css`.
-- Desktop: rounded hero card; the portrait is cropped by the card's bottom edge and its head rises past the glowing lime ring.
-- Mobile: headline, then portrait inside the ring, then intro text and buttons. Nothing overlaps the text.
-- Ring and portrait are sized from their own stage (container units), so they stay in proportion at every width.
-- Fixed the sideways scroll on tablet and small laptop widths.
-- The navigation now lines up with the hero card's inner edges.
-- Removed the unused `hero-reference.css` (it was never linked from `index.html`).
-- Contact section: WhatsApp (prefilled message), email and LinkedIn are full buttons. No email or number is shown as text.
-- V7.1: thicker ring with a stronger glow, larger portrait and better placement on mobile, fixed a see-through watch face in the cutout, and added `?v=7.1` to the CSS/JS links so phones reload the new files.
-- When publishing, upload ALL files (index.html, styles.css, script.js and the assets folder). An old styles.css next to the new index.html makes the page look broken.
+The website links to `https://claryfi.in` and `https://entitlex.in`.
