@@ -2,6 +2,8 @@
 
 A premium editorial single-page portfolio built with plain HTML, CSS and JavaScript. No build step, no dependencies.
 
+**Live:** https://adharsh-entitlex.github.io/portfolio/ — served from `main` (`/`) via GitHub Pages.
+
 ## Preview locally
 Open `index.html` in a browser, or serve the folder:
 
@@ -23,8 +25,12 @@ Upload ALL files together. An old `styles.css` next to a new `index.html` will l
 - `index.html` — all content and section markup.
 - `styles.css` — design tokens at the top, then header, hero, sections, responsive rules.
 - `script.js` — mobile menu, scroll progress bar, section-aware navigation, reveal-on-scroll.
-- `assets/adharsh-cutout.png` — transparent portrait used in the hero.
+- `assets/adharsh-portrait.webp` — transparent hero portrait served to browsers (36 KB, down from a 1.1 MB PNG).
+- `assets/adharsh-cutout.png` — full-size source for the WebP above, kept for reference.
 - `assets/adharsh-hero.png` — original portrait, kept for reference.
+- `assets/og-image.jpg` — 1200×630 social preview image.
+- `assets/favicon.png`, `assets/apple-touch-icon.png` — browser and home-screen icons.
+- Social preview and canonical tags point at the GitHub Pages URL; update them if the site moves to a custom domain.
 
 ## Design notes (v8)
 Full rewrite of the visual layer:
